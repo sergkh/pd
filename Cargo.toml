@@ -1,0 +1,15 @@
+[package]
+name = "pd"
+version = "0.1.0"
+edition = "2021"
+description = "Derives strong password form user input using Argon2 algorithm"
+authors = ["Serhiy Khruschak", "Serhiy Khruschak <sergey.khruschak@gmail.com>"]
+keywords = ["security", "argon2", "kdf"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+argon2 = "0.5.0"
+atty = "0.2.14"
+base64 = "0.21.2"
+clap = { version = "4.3.10", features = ["derive"] }
+rpassword = "7.2.0"
