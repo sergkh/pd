@@ -9,7 +9,6 @@ keywords = ["security", "argon2", "kdf"]
 
 [dependencies]
 argon2 = "0.5.0"
-atty = "0.2.14"
 base64 = "0.21.2"
 clap = { version = "4.3.10", features = ["derive"] }
 rpassword = "7.2.0"
