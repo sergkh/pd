@@ -2,7 +2,7 @@ use std::io::{self, BufRead};
 use base64::{Engine as _, engine::general_purpose}; // https://docs.rs/base64/latest/base64/
 use argon2::Argon2; // https://docs.rs/argon2/latest/argon2/
 use clap::Parser;
-use atty::Stream;
+use std::io::IsTerminal;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)] // Read from `Cargo.toml`
@@ -21,14 +21,15 @@ fn main() {
         "default domain01".to_string()
     };
 
-    let password: String = match atty::is(Stream::Stdin) {
+    let stdin = io::stdin();
+    let password: String = match stdin.is_terminal() {
         true => {            
             rpassword::prompt_password("Password: ").unwrap() // read masked password from user input
         },
         false => {
             // read password from stdin, e.g. `echo "password" | pd`  
             let mut line = String::new();
-            let stdin = io::stdin();
+            
             stdin.lock().read_line(&mut line).unwrap();
             line.trim_end().to_string()
         }
