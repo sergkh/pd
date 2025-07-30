@@ -8,7 +8,7 @@ keywords = ["security", "argon2", "kdf"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-argon2 = "0.5.0"
-base64 = "0.21.2"
-clap = { version = "4.3.10", features = ["derive"] }
-rpassword = "7.2.0"
+argon2 = "0.5.3"
+base64 = "0.22.1"
+clap = { version = "4.5.41", features = ["derive"] }
+rpassword = "7.4.0"
